@@ -6,6 +6,7 @@ For duplicating the environment used in this project use the following commands
 ```
 conda create -n needle python=3.10 -y
 conda activate needle
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 ```
 ## Datasets
