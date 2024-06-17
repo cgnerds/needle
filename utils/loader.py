@@ -2,8 +2,6 @@ import torch
 import numpy as np
 from monai.data import (Dataset)
 
-
-
 class CustomDataset(Dataset):
     def __init__(self, npz_file):
         data = np.load(npz_file)
@@ -17,7 +15,7 @@ class CustomDataset(Dataset):
         image = self.images[index]
         label = self.labels[index]
 
-        # Convert the data to torch tensors
+        # Convert the data to torch tensors (HWC->CHW)
         image = torch.from_numpy(image).float().permute(2, 0, 1)
         label = torch.from_numpy(label).long().permute(2, 0, 1)
         return {'image': image, 'label': label}

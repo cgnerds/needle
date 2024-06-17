@@ -6,7 +6,7 @@ from scipy.io import savemat
 from PIL import Image
 
 
-def overlay(image, mask, color: Tuple[int, int, int] = (255, 0, 0), alpha = 0.5,   resize: Tuple[int, int] = (1024, 1024)):
+def overlay(image, mask, color: Tuple[int, int, int] = (1, 0, 0), alpha = 0.5,   resize: Tuple[int, int] = (1024, 1024)):
     mask_ = np.expand_dims(mask, 2).repeat(3, axis=2)
     masked =np.ma.MaskedArray(image, mask=mask_ , fill_value=color)
     overlay = masked.filled()
